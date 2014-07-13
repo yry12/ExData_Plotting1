@@ -1,15 +1,15 @@
-# Plotting Assignment 1 for Exploratory Data Analysis 
+# Getting and Cleaning Data
+# Project 1
 
 setInternet2(use = TRUE)
 
+# Create a folder to save plot files
 if (!file.exists("./temp_p1data")) {
     dir.create("temp_p1data")
 }
 setwd("./temp_p1data")
 
-#
-URL <- "http://mlr.cs.umass.edu/ml/machine-learning-databases/00235/"
-FILE <- "household_power_consumption.zip"setwd("./temp_p1data")
+
 
 URL <- "http://mlr.cs.umass.edu/ml/machine-learning-databases/00235/"
 FILE <- "household_power_consumption.zip"
@@ -30,8 +30,14 @@ p1data<- p1data[(p1data$Date == "2/1/2007" | p1data$Date == "2/2/2007"),]
 nowdates<- factor(p1data$Date, labels=c("2/1/2007","2/2/2007"))
 table(nowdates)
 
-
+dev.off()
 ## Plot 3
+p1data<-sort(p1data$Date,p1data$Time )
+p1data$id <- seq(dim(p1data)[1])
+d1 <- min(p1data$id)
+d2 <- median(p1data$id)
+d3 <- max(p1data$id)
+
 par(mfrow = c(1, 1))
 p1data<-sort(p1data$Date,p1data$Time)
 tmax=max(p1data$Sub_metering_1, p1data$Sub_metering_2,p1data$Sub_metering_3)

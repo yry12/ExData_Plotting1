@@ -28,6 +28,12 @@ table(nowdates)
 
 
 ## Plot 4
+p1data<-sort(p1data$Date,p1data$Time )
+p1data$id <- seq(dim(p1data)[1])
+d1 <- min(p1data$id)
+d2 <- median(p1data$id)
+d3 <- max(p1data$id)
+
 par(mfrow = c(2, 2))
 with(p1data, {
 		plot(p1data$id, p1data$Global_active_power, type="l", 

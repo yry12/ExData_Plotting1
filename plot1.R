@@ -6,7 +6,7 @@ setInternet2(use = TRUE)
 if (!file.exists("./temp_p1data")) {
     dir.create("temp_p1data")
 }
-setwd("./temp_p1data")
+setwd("temp_p1data")
 
 #
 URL <- "http://mlr.cs.umass.edu/ml/machine-learning-databases/00235/"
